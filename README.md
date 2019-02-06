@@ -41,4 +41,4 @@ A toi de jouer !!!!
 - [ ] Créer un crud permettant d'ajouter/ modifier supprimer des rendez-vous (Appointment)
 
 
-#### Vous pouvez maintenant faire une pull request pour nous envoyer votre beau projet :D !!!
+#### tu peux maintenant faire une pull request pour nous envoyer ton beau projet :D !!!
