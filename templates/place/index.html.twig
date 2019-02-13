@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Place - indexe{% endblock %}
+
+{% block body %}
+    {% include 'menu.html.twig' %}
+    <div class="container">
+        <h3 class="text-center text-info"> Place</h3>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h5 class="text-center text-info"> Importez un rendez-vous </h5>
+                {{ form_start(form) }}
+                <div class="form-group row">
+                    {{ form_widget(form.fichier, {'attr':{'class':'form-control-file','placeholder':'Import CSV file'}}) }}
+                </div>
+                <div class="text-danger">
+                    {{ form_errors(form.fichier) }}
+                </div>
+
+                <div class="form-group row">
+                    <input type="submit" value="Importer" class="btn btn-success col-md-4 offset-md-4">
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <hr class="bg-info">
+        <table class="table">
+            <caption>Liste des Places</caption>
+            <thead class="bg-info">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>zipCode</th>
+                <th>City</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pl in place %}
+                <tr>
+                    <td>{{ pl.name }}</td>
+                    <td>{{ pl.address }}</td>
+                    <td>{{ pl.zipCode }}</td>
+                    <td>{{ pl.city }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4" class="alert alert-danger text-center">Empty List</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

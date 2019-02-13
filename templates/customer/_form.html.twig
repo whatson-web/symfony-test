@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.firstName) }}
+                {{ form_widget(form.firstName,{'attr':{'class':'form-control','placeholder':'firstName'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(form.firstName) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.lastName) }}
+                {{ form_widget(form.lastName,{'attr':{'class':'form-control','placeholder':'lastName'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(form.lastName) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.birthDate) }}
+                <div class="form-row">
+                    <div class="col-md-3" >
+                        {{ form_widget(form.birthDate.day,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-md-3" >
+                        {{ form_widget(form.birthDate.month,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-md-3" >
+                        {{ form_widget(form.birthDate.year,{'attr':{'class':'form-control'}}) }}
+                    </div>
+
+                </div>
+                <div class="text-danger">
+                    {{ form_errors(form.birthDate) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2 mx-auto">
+                    <input type="submit" class="btn btn-success" value="Valider"/>
+                </div>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
