@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription!{% endblock %}
+
+{% block body %}
+    {% include 'menu.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+
+                {{ form_start(formView) }}
+                <div class="form-group">
+                    {{ form_label(formView.username) }}
+                    {{ form_widget(formView.username,{'attr':{'class':'form-control','placeholder':'Pseudo...'}}) }}
+                    <div class="text-danger">
+                        {{ form_errors(formView.username) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(formView.email) }}
+                    {{ form_widget(formView.email,{'attr':{'class':'form-control','placeholder':'Entrer votre email'}}) }}
+                    <div class="text-danger">
+                        {{ form_errors(formView.email) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(formView.password) }}
+                    {{ form_widget(formView.password,{'attr':{'class':'form-control','placeholder':'Entrer un mot de passe'}}) }}
+                    <div class="text-danger">
+                        {{ form_errors(formView.password) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(formView.re_password) }}
+                    {{ form_widget(formView.re_password,{'attr':{'class':'form-control','placeholder':'Confirmer le MDP'}}) }}
+                    <div class="text-danger">
+                        {{ form_errors(formView.re_password) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(formView.roles,'Type d\'utilisateur') }}
+                    {{ form_widget(formView.roles,{'attr':{'class':'form-control'}}) }}
+                    <div class="text-danger">
+                        {{ form_errors(formView.roles) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 mx-auto">
+                        <input type="submit" class="btn btn-success" value="Valider"/>
+                    </div>
+                </div>
+
+                {{ form_end(formView) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
