@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Customer index{% endblock %}
+
+{% block body %}
+    <h1>Customer index</h1>
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">BirthDate</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for customer in customers %}
+            <tr>
+                <td scope="row">{{ customer.id }}</td>
+                <td>{{ customer.firstName }}</td>
+                <td>{{ customer.lastName }}</td>
+                <td>{{ customer.birthDate ? customer.birthDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('customer_show', {'id': customer.id}) }}">show</a>
+                    <a href="{{ path('customer_edit', {'id': customer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('customer_new') }}">Create new</a>
+    <a href="{{ path('public') }}">back to index</a>
+{% endblock %}
