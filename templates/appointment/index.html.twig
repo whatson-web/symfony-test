@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Index des Rendez-Vous{% endblock %}
+
+{% block main %}
+    <div class="w-50 m-auto">
+        <h1>Index des rendez-vous</h1>
+        <a class="btn btn-primary" href="{{ path('customer_index') }}">Voir les clients</a>
+        <a class="btn btn-primary" href="{{ path('place_index') }}">Voir les lieux</a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.id }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{{ path('appointment_show', {'id': appointment.id}) }}">Voir</a>
+                        <a class="btn btn-info" href="{{ path('appointment_edit', {'id': appointment.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">Aucun rendez-vous trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary" href="{{ path('appointment_new') }}">Ajouter un rendez-vous</a>
+
+    </div>
+{% endblock %}
