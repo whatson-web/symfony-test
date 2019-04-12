@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+    {{ form_label(form.lastName, 'Nom') }}
+    {{ form_row(form.lastName) }}
+    {{ form_label(form.firstName, 'Prénom') }}
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.birthDate) }}
+    <button class="btn btn-primary mt-3">{{ button_label|default('Enregistrer') }}</button>
+    <a class="btn btn-primary mt-3" href="{{ path('customer_index') }}">Retour à la liste</a>
+
+{{ form_end(form) }}

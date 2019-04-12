@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+        {{ form_label(form.idCustomer, 'Nom et Prénom du client') }}
+        {{ form_row(form.idCustomer) }}
+        {{ form_label(form.idPlace, 'Lieu du rendez-vous') }}
+        {{ form_row(form.idPlace) }}
+        {{ form_row(form.date) }}
+    <button class="btn btn-primary mt-3">{{ button_label|default('Enregistrer') }}</button>
+    <a class="btn btn-primary mt-3" href="{{ path('appointment_index') }}">Retour à la liste</a>
+{{ form_end(form) }}

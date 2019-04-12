@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Lieux de Rendez-Vous!{% endblock %}
+
+{% block main %}
+    <div class="w-50 m-auto">
+        <h1>Les lieux de rendez-vous</h1>
+        <div class="my-3">
+            <a class="btn btn-primary" href="{{ path('appointment_index') }}">Voir les rendez-vous</a>
+            <a class="btn btn-primary" href="{{ path('customer_index') }}">Voir les clients</a>        
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                    <th>Code postal</th>
+                    <th>Ville</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for place in places %}
+                <tr>
+                    <td>{{ place.id }}</td>
+                    <td>{{ place.name }}</td>
+                    <td>{{ place.address }}</td>
+                    <td>{{ place.zipCode }}</td>
+                    <td>{{ place.city }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun lieu trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {{ form(form) }}
+
+    </div>
+{% endblock %}
