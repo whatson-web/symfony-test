@@ -10,9 +10,9 @@
 
     <h1>Connexion</h1>
     <label for="inputUsername">Identifiant</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Whatson" required autofocus>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control my-2" placeholder="Whatson" required autofocus>
     <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="*****" required>
+    <input type="password" name="password" id="inputPassword" class="form-control my-2" placeholder="*****" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -29,10 +29,8 @@
         </div>
     #}
 
-    <button class="btn btn-primary" type="submit">
-        Se connecter
-    </button>
-    <a class="btn btn-primary my-2" href="{{ path('app_register') }}">Pas encore de compte?</a>
+    <button class="btn btn-primary" type="submit">Se connecter</button>
+    <a class="btn btn-primary my-3" href="{{ path('app_register') }}">Pas encore de compte?</a>
 
 </form>
 {% endblock %}

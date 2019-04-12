@@ -19,22 +19,22 @@ class AppointmentRepository extends ServiceEntityRepository
         parent::__construct($registry, Appointment::class);
     }
 
-    /**
-     * @return Appointment[] Returns an array of Appointment objects
-     */
+    // /**
+    //  * @return Appointment[] Returns an array of Appointment objects
+    //  */
     
-    public function findByCustomerId($customerId)
-    {
-        return $this->createQueryBuilder('a')
-            ->addSelect("c")
-            ->leftJoin('a.idCustomer', 'c')
-            ->andWhere('c.id = :val')
-            ->setParameter('val', $customerId)
-            ->orderBy('a.id', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;   
-    }
+    // public function findByCustomerId($customerId)
+    // {
+    //     return $this->createQueryBuilder('a')
+    //         ->addSelect("c")
+    //         ->leftJoin('a.idCustomer', 'c')
+    //         ->andWhere('c.id = :val')
+    //         ->setParameter('val', $customerId)
+    //         ->orderBy('a.id', 'ASC')
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;   
+    // }
 
     /*
     public function findOneBySomeField($value): ?Appointment

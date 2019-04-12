@@ -37,6 +37,8 @@ class AppointmentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $appointment->setIdUser($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($appointment);
             $entityManager->flush();

@@ -84,6 +84,10 @@ class Customer
         return $this;
     }
 
+    public function getLastNameAndFirstName() {
+        return $this->lastName . " " . $this->firstName;
+    }
+
     /**
      * @return Collection|Appointment[]
      */

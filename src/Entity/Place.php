@@ -101,6 +101,10 @@ class Place
         return $this;
     }
 
+    public function getAddressAndCity() {
+        return $this->address . "," . $this->city;
+    }
+
     /**
      * @return Collection|Appointment[]
      */

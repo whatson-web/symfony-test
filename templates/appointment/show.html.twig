@@ -6,7 +6,7 @@
 <div class="w-50 m-auto">
     <h1>Mon rendez-vous</h1>
 
-    <table class="table">
+    <table class="table my-3">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -14,11 +14,11 @@
             </tr>
             <tr>
                 <th>Client</th>
-                <td>{{ appointment.idCustomer.lasName }}</td>
+                <td>{{ appointment.idCustomer.getLastName() }}</td>
             </tr>
             <tr>
                 <th>Place</th>
-                <td>{{ appointment.id }}</td>
+                <td>{{ appointment.idPlace.getName() }}, {{ appointment.idPlace.getAddress() }}, {{ appointment.idPlace.getZipCode() }}, {{ appointment.idPlace.getCity() }}</td>
             </tr>
             
         </tbody>

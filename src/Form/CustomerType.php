@@ -6,15 +6,24 @@ use App\Entity\Customer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class CustomerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName')
-            ->add('lastName')
-            ->add('birthDate')
+            ->add('firstName', null, [
+                'label' => false
+            ])
+            ->add('lastName', null, [
+                'label' => false
+            ])
+            ->add('birthDate', DateType::class, [
+                'label' => 'Date de naissance',
+                'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+            ])
         ;
     }
 
