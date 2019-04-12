@@ -10,7 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 class AppointmentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -33,6 +33,10 @@ class AppointmentType extends AbstractType
                 'label' => false,
                 'choice_label' => 'name',
                 'choice_value' => 'id',
+            ])
+            ->add('date', DateType::class, [
+                'label' => false,
+                'widget' => 'choice'
             ])
         ;
     }

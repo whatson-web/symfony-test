@@ -16,7 +16,6 @@
                     <th>Adresse</th>
                     <th>Code postal</th>
                     <th>Ville</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,12 +23,9 @@
                 <tr>
                     <td>{{ place.id }}</td>
                     <td>{{ place.name }}</td>
-                    <td>{{ place.adress }}</td>
+                    <td>{{ place.address }}</td>
                     <td>{{ place.zipCode }}</td>
                     <td>{{ place.city }}</td>
-                    <td>
-                        <a class="btn btn-info" href="{{ path('place_show', {'id': place.id}) }}">Voir</a>
-                    </td>
                 </tr>
             {% else %}
                 <tr>
@@ -39,4 +35,7 @@
             </tbody>
         </table>
 
-    </div>{% endblock %}
+        {{ form(form) }}
+
+    </div>
+{% endblock %}

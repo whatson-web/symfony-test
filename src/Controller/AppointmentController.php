@@ -53,7 +53,7 @@ class AppointmentController extends AbstractController
     /**
      * @Route("/{id}", name="appointment_show", methods={"GET"})
      */
-    public function show(Appointment $appointment): Response
+    public function show(Appointment $appointment, AppointmentRepository $appointmentRepository): Response
     {
         return $this->render('appointment/show.html.twig', [
             'appointment' => $appointment,

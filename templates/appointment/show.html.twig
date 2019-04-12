@@ -2,7 +2,8 @@
 
 {% block title %}Rendez-vous{% endblock %}
 
-{% block body %}
+{% block main %}
+<div class="w-50 m-auto">
     <h1>Mon rendez-vous</h1>
 
     <table class="table">
@@ -11,12 +12,22 @@
                 <th>Id</th>
                 <td>{{ appointment.id }}</td>
             </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ appointment.idCustomer.lasName }}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ appointment.id }}</td>
+            </tr>
+            
         </tbody>
     </table>
 
-    <a href="{{ path('appointment_index') }}">Retour à la liste</a>
+    <a class="btn btn-primary" href="{{ path('appointment_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('appointment_edit', {'id': appointment.id}) }}">Modifier</a>
+    <a class="btn btn-primary" href="{{ path('appointment_edit', {'id': appointment.id}) }}">Modifier</a>
 
     {{ include('appointment/_delete_form.html.twig') }}
+</div>
 {% endblock %}
