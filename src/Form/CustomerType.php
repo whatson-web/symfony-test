@@ -22,6 +22,7 @@ class CustomerType extends AbstractType
             ->add('birthDate', DateType::class, [
                 'label' => 'Date de naissance',
                 'format' => 'dd-MM-yyyy',
+                'years' => range(1930, date('Y')),
                 'widget' => 'choice',
             ])
         ;

@@ -23,11 +23,12 @@
             
         </tbody>
     </table>
+    <div class="d-flex">
+        <a class="btn btn-primary mr-1" href="{{ path('appointment_index') }}">Retour à la liste</a>
 
-    <a class="btn btn-primary" href="{{ path('appointment_index') }}">Retour à la liste</a>
-
-    <a class="btn btn-primary" href="{{ path('appointment_edit', {'id': appointment.id}) }}">Modifier</a>
-
-    {{ include('appointment/_delete_form.html.twig') }}
+        <a class="btn btn-primary mr-1" href="{{ path('appointment_edit', {'id': appointment.id}) }}">Modifier</a>
+    
+        {{ include('appointment/_delete_form.html.twig') }}    
+    </div>
 </div>
 {% endblock %}

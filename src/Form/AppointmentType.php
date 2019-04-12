@@ -36,6 +36,7 @@ class AppointmentType extends AbstractType
             ->add('date', DateType::class, [
                 'label' => 'Date du rendez-vous',
                 'format' => 'dd-MM-yyyy',
+                'years' => range(date('Y'), date('Y')+10),
                 'widget' => 'choice',
             ])
         ;
