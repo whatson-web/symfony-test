@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <h1>Création de votre compte utilisateur</h1>
+
+    {{ form_start(registrationForm)}}
+
+    {{ form_row(registrationForm.username, {
+        'label': 'Nom d\'utilisateur',
+        'attr': {'placeholder': 'Nom d\'utilisateur'}
+        }) 
+    }}
+    {{ form_row(registrationForm.email, {
+        'label': 'Email',
+        'attr': {'placeholder': 'Adresse email'}
+        })     
+    }}
+    {{ form_row(registrationForm.password, {
+        'label': 'Mot de passe',
+        'attr': {'placeholder': 'Votre mot de passe'}
+        }) 
+    }}
+    {{ form_row(registrationForm.confirm_password, {
+        'label': 'Confirmation du mot de passe',
+        'attr': {'placeholder': 'Répétez votre mot de passe'}
+        }) 
+    }}
+    <button class="btn btn-success" type="submit">Inscription</button>
+
+    {{ form_end(registrationForm)}}
+
+{% endblock %}
