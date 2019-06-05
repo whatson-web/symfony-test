@@ -15,15 +15,21 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">                    
+                    {% if not app.user %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('security_registration') }}">Créer un compte</a>
                     </li>
-                    {% if not app.user %}
                     <li class="nav-item">
                         <a href="{{ path('security_login') }}" class="nav-link">Connexion</a>
                     </li>
                     {% else %}
+                    <li class="nav-item">
+                        <a href="{{ path('customers_list') }}" class="nav-link">Liste des clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('places_list') }}" class="nav-link">Liste des places</a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ path('security_logout') }}" class="nav-link">Déconnexion</a>
                     </li>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Form\CustomerType;
+use App\Repository\PlaceRepository;
 use App\Repository\CustomerRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -18,9 +19,18 @@ class SiteController extends AbstractController
      */
     public function index(CustomerRepository $repo)
     {
+        return $this->render('site/index.html.twig');
+    }
+
+// PAGE D'AFFICHAGE DES CLIENTS
+    /**
+     * @Route("/customers", name="customers_list")
+     */
+    public function customers(CustomerRepository $repo)
+    {
         $customers = $repo->findAll();
 
-        return $this->render('site/index.html.twig', [
+        return $this->render('site/customers_list.html.twig', [
             'customers' => $customers,
         ]);
     }
@@ -44,7 +54,7 @@ class SiteController extends AbstractController
             $manager->persist($customer);
             $manager->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('customers_list');
         }
 
         return $this->render('site/create.html.twig', [
@@ -61,6 +71,18 @@ class SiteController extends AbstractController
         $manager->remove($customer);        
         $manager->flush();
 
-        return $this->RedirectToRoute('home');
+        return $this->RedirectToRoute('customers_list');
+    }
+    // AFFICHAGE DES PLACES
+    /**
+     * @Route("places", name="places_list")
+     */
+    public function places(PlaceRepository $repo) {
+        $places = $repo->findAll();
+
+        return $this->render('site/places_list.html.twig', [
+            'places' => $places,
+        ]);
     }
 }
+
