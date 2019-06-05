@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Ajout de places par fichier CSV</h1>
+
+    {{ form_start(formCSV) }}  
+
+    {{ form_row(formCSV.file, {
+        'label': 'Fichier CSV',
+        'attr': {'placeholder':'Parcourir'}
+    }) }}
+    {{ form_row(formCSV.btn, {'label': 'Importer'}) }}
+
+    {{ form_end(formCSV) }}   
+
+{% endblock %}
