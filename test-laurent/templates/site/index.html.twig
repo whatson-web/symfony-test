@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bienvenue sur mon test Symfony !</h1>
+    {% if not app.user %}
+    <p>
+        Login : contact@devlawper.com<br>
+        Password : toto
+    </p>
+    {% else %}
+    <p><a class="btn btn-success" href="{{ path('security_logout') }}">Déconnexion</a></p>
+    <p>J'ai pris plaisir à réaliser ce test, malgré quelques prises de tête assez sévères j'avoue !</p>
+    <p>Voici la liste des difficulés et éventuelles pistes d'amélioration de mon projet :
+    <ul>
+        <li>Ordonner les actions. Je m'explique, je ne sais pas si c'est une méconnaissance de ma part ou un particularité de Symfony, mais je n'ai pas réussi à afficher la page de création de compte si je créé mon SecurityController après mon entity User (ordre indiqué sur le README). J'ai commencé par créer mes pages et ensuite mon entité et là ça a fonctionné.</li>
+        <li>Il est sûrement possible d'améliorer l'affichage de la date de naissance du client et la date du rendez-vous. Le format et les mois sont en anglais, on pourrait passer tout ça en français.</li>
+        <li>Je ne pratique Symfony que depuis quelques jours, je ne connais donc pas vraiment les bonnes pratiques en terme d'organisation de dossiers et fichiers. Notamment le moment auquel il faut créer un nouveau Controller ou continuer à utiliser un existant.</li>
+        <li>Le fichier CSV... Un beau casse tête ! Je m'en suis sorti "à ma manière" ! Je ne sais pas si il y un moyen plus propre peut-être. J'ai trouvé peu d'infos sur les CSV et Symfony ou alors des code à s'arracher les cheveux avec peu d'explications. J'ai donc mélangé un peu de ce que je connaissais sur le CSV en PHP pure et la liaison à la base de données avec Symfony.</li>
+        <li>Enfin de manière plus général, je ne sais pas vraiment comment optimiser la sécurité ou si Symfony le gère seul. Je n'ai donc pas pris en compte ce critère.</li>
+        <li>Dernière chose aussi, je me suis rendu compte seulement après avoir commencé qu'on pouvait faire un CRUD directement avec make:crud. Ca m'aurait simplifié encore plus la vie je pense. Mais j'avais "appris" autrement alors je suis parti là dedans un peu tête baissée... Impatience, quand tu nous tiens !!</li>
+    </ul>
+    </p>
+    <p>
+        Voilà en gros les principaux points qui m'ont chagrinés. Quoiqu'il arrive, je connaissais peu Symfony et ce test m'a permis d'appréhender certaines fonctionnalités et ça m'a donné envie d'aller plus loin !<br>
+        J'espère bientôt vous rencontrer pour en discuter, et j'espère aussi que ce test sera concluant pour vous et qu'il me permettra de travailler aux cotés d'Agathe et Clément pour les Cachotières !    
+    </p>
+    <p>Bonne correction, à très bientôt !! Laurent</p>
+    {% endif %}
+{% endblock %}

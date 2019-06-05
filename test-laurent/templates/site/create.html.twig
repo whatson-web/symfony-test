@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% if editMode %}
+    <h1>Modification d'un client</h1>
+    {% else %}
+    <h1>Création d'un client</h1>
+    {% endif %}    
+
+    {{ form_start(formCustomer) }}
+
+        {{ form_row(formCustomer.firstName, {
+            'attr': {'placeholder':"Prénom du client"},
+            'label': 'Prénom' }) }}
+        {{ form_row(formCustomer.lastName, {
+            'attr': {'placeholder':"Nom du client"},
+            'label': 'Nom'}) }}
+        {{ form_row(formCustomer.birthDate, {
+            'label': 'Date de naissance'}) }}
+
+        <button type="submit" class="btn btn-success">
+            {% if editMode %}
+            Enregister les modifications
+            {% else %}
+            Ajouter le client
+            {% endif %}
+        </button>
+
+    {{ form_end(formCustomer) }}
+
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Symfony Test - Laurent{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="{{ path('home') }}">Symfony Test Laurent</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">                    
+                    {% if not app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('security_registration') }}">Créer un compte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('security_login') }}" class="nav-link">Connexion</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{{ path('customers_list') }}" class="nav-link">Liste des clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('places_list') }}" class="nav-link">Liste des places</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('appointments_list') }}" class="nav-link">Liste des rendez-vous</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('security_logout') }}" class="nav-link">Déconnexion</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <div class="container mt-4 mb-4">            
+            {% block body %}{% endblock %}        
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
