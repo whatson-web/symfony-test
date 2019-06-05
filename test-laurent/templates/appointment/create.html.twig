@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% if editMode %}
+    <h1>Modification d'un rendez-vous</h1>
+    {% else %}
+    <h1>Création d'un rendez-vous</h1>
+    {% endif %}    
+
+    {{ form_start(formAppointment) }}
+
+        {{ form_row(formAppointment.idUser, {
+            'label': 'Nom de l\'utilisateur' }) }}
+        {{ form_row(formAppointment.idCustomer, {
+            'label': 'Nom du client' }) }}
+        {{ form_row(formAppointment.idPlace, {
+            'label': 'Lieu du rendez-vous' }) }}
+        {{ form_row(formAppointment.date, {
+            'label': 'Date du rendez-vous' }) }}
+
+        <button type="submit" class="btn btn-success">
+            {% if editMode %}
+            Enregister les modifications
+            {% else %}
+            Ajouter le rendez-vous
+            {% endif %}
+        </button>
+
+    {{ form_end(formAppointment) }}
+
+{% endblock %}

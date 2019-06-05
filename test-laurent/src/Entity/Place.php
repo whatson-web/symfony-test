@@ -131,4 +131,9 @@ class Place
 
         return $this;
     }
+    
+    public function __toString(){
+        
+        return $this->name.' - '.$this->adress.' , '.$this->zipCode.' - '.$this->city;
+    }
 }

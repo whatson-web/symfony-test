@@ -43,6 +43,7 @@ class Customer
         $this->appointments = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,5 +114,10 @@ class Customer
         }
 
         return $this;
+    }
+    
+    public function __toString(){
+        
+        return $this->firstName.' '.$this->lastName;
     }
 }

@@ -54,7 +54,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->appointments = new ArrayCollection();
-    } // on ajoute confirm_password sans ORM car il n'a pas de lien avec la BDD
+    }
 
     public function getId(): ?int
     {
@@ -137,5 +137,10 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+    
+    public function __toString(){
+        
+        return $this->username;
     }
 }
