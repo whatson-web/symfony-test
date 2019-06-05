@@ -29,7 +29,7 @@ class Customer
     private $lastName;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $birthDate;
 
