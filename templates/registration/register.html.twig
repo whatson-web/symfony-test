@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+  <div class="container center">
+        <h1>Inscription</h1>
+        {{ form_start(registrationForm, {'attr': {'class': 'row'}}) }}
+            <div>
+                Entrez votre nom d'utilisateur<br/>
+                {{ form_widget(registrationForm.username, {'attr': {'placeholder': 'Nom d\'utilisateur'}}) }}
+                <span class="error">{{ form_errors(registrationForm.username) }}</span>
+            </div>
+            <div>
+                Entrez votre mot de passe<br/>
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
+                <span class="error">{{ form_errors(registrationForm.plainPassword) }}</span>
+            </div>
+            <div>
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'placeholder': 'Termes et conditions'}}) }}
+                Acceptez nos termes et conditions (inexistantes, parce que le site n'est pas vraiment réel)
+                <span class="error">{{ form_errors(registrationForm.agreeTerms) }}</span>
+            </div>
+                <input type="submit" name="" class="btn btn-primary" value="M'inscrire">
+        {{ form_end(registrationForm) }}
+    </div>
+    
+        <div class="RetourAuMenu">
+            <a href="/">Retour au menu</a>
+        </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonjour!{% endblock %}
+
+{% block body %}
+
+
+    {% if app.user %}
+    <h1 class="title">Bonjour {{ app.user.username }}!</h1>
+					{% else %}
+    <h1 class="title">Bonjour!</h1>
+			        {% endif %}
+    <br/>Voici ma participation!
+	<hr/>
+    {% if app.user %}
+		<li><a href="/logout">Logout</a></li>
+	<br/>
+	{% else %}
+		<li><a href="/register">S'enregistrer</a></li>
+		<li><a href="/login">Login</a></li>
+	{% endif %}
+	<br/>
+	<li><a href="/customer">Afficher les clients (CRUD)</a></li>
+	<li><a href="/places">Afficher les lieux</a></li>
+	<li><a href="/appointment">Afficher les rendez vous</a></li>
+{% endblock %}
