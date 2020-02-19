@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des rendez-vous{% endblock %}
+
+{% block body %}
+    <h1>Index des rendez-vous</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Place</th>
+                <th>Personne</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.idUser.id ? appointment.idUser.Username : '' }}</td>
+                <td>{{ appointment.idPlace.id ? appointment.idPlace.Address : '' }}, 
+                {{ appointment.idPlace.id ? appointment.idPlace.City : '' }}</td>
+                <td>{{ appointment.idCustomer.id ? appointment.idCustomer.FirstName : '' }}, 
+                {{ appointment.idCustomer.id ? appointment.idCustomer.LastName : '' }}</td>
+                <td>{{ appointment.date ? appointment.date|date('Y-m-d H:i:s') : '' }}</td>
+
+                <td>
+                    <a href="{{ path('appointment_show', {'idUser': appointment.idUser.id,'idCustomer':appointment.idCustomer.id,'idPlace':appointment.idPlace.id}) }}">show</a>
+                    <a href="{{ path('appointment_edit', {'idUser': appointment.idUser.id,'idCustomer':appointment.idCustomer.id,'idPlace':appointment.idPlace.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'éléments</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('appointment_new') }}">Creer un nouveau</a>
+        <div class="RetourAuMenu">
+            <a href="/">Retour au menu</a>
+        </div>
+{% endblock %}

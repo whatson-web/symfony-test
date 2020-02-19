@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des clients{% endblock %}
+
+{% block body %}
+    <h1>Index des clients</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Prenom</th>
+                <th>Nom de famille</th>
+                <th>Date de naissance</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for customer in customers %}
+            <tr>
+                <td>{{ customer.firstName }}</td>
+                <td>{{ customer.lastName }}</td>
+                <td>{{ customer.birthDate ? customer.birthDate|date('d/m/Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('customer_show', {'id': customer.id}) }}">Afficher</a>
+                    <a href="{{ path('customer_edit', {'id': customer.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('customer_new') }}">Creer un nouveau client</a>
+        <div class="RetourAuMenu">
+            <a href="/">Retour au menu</a>
+        </div>
+{% endblock %}
