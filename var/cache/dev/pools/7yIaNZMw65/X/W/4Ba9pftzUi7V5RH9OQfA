@@ -1,0 +1,55 @@
+<?php //%255BApp%255CEntity%255CUser%2524username%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Type'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Type')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'length' => [
+                255,
+            ],
+            'message' => [
+                1 => 'Vous devez renseigner un nom d\'utilisateur',
+                3 => 'Le nom d\'utlisateur doit être composé de lettres et/ou de chiffres, sans espace.',
+            ],
+            'groups' => [
+                1 => [
+                    'Default',
+                ],
+                [
+                    'Default',
+                ],
+                [
+                    'Default',
+                ],
+            ],
+            'maxMessage' => [
+                2 => 'Ce nom d\'utilisateur est trop long, il doit faire {{ limit }} caratères maximum',
+            ],
+            'minMessage' => [
+                2 => 'Ce nom d\'utilisateur est trop court, il doit faire {{ limit }} caratères minimum',
+            ],
+            'max' => [
+                2 => 25,
+            ],
+            'min' => [
+                2 => 5,
+            ],
+            'type' => [
+                3 => 'alnum',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+        $o[3],
+    ],
+    []
+); }];

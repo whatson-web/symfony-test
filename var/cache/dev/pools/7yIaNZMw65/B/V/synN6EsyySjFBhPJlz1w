@@ -1,0 +1,37 @@
+<?php //%255BApp%255CEntity%255CPlaceFile%2524file%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Validator\\Constraints\\File'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\File')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'binaryFormat' => [
+                false,
+            ],
+            'mimeTypes' => [
+                [
+                    'application/csv',
+                ],
+            ],
+            'mimeTypesMessage' => [
+                'Seul l\'importation de fichier csv est autorisée',
+            ],
+            'groups' => [
+                [
+                    'Default',
+                ],
+            ],
+        ],
+        'Symfony\\Component\\Validator\\Constraints\\File' => [
+            'maxSize' => [
+                1024000,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+); }];
