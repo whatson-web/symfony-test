@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification d'un client
+{% endblock %}
+
+{% block body %}
+	
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-4 offset-md-4">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Modification d'un client</strong>
+                            </div>
+
+                            {{ form_start(form) }}
+                            <div class="card-body card-block">
+                                {{ form_row(form.firstName) }}
+                                {{ form_row(form.lastName) }}
+                                {{ form_row(form.birthDate) }}
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                <a href="{{ path('customers') }}" class="btn btn-danger">Annuler</a>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

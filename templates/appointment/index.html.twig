@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rendez vous
+{% endblock %}
+
+{% block body %}
+
+
+	<!-- MAIN CONTENT-->
+	<div class="main-content">
+		<div class="section__content section__content--p30">
+			<div class="container-fluid">
+				<div class="row">
+					<div
+						class="col-md-8 col-lg-8 user-data user-data mb-5 pb-3">
+						<!-- DATA TABLE -->
+						<h3 class="title-5 m-b-35">Liste des rendez vous</h3>
+						{% if appointments | length > 0 %}
+							<div class="table-responsive table-responsive-data">
+								<table class="table table-data2 tablepage">
+									<thead>
+										<tr>
+											<th>Client</th>
+											<th>Lieu</th>
+											<th>Date</th>
+											<th>Options</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										{% for appointment in appointments %}
+
+											<tr class="tr-shadow">
+
+												<td>{{ appointment.customer.firstName }} {{ appointment.customer.lastName }}</td>
+												<td>{{ appointment.place.name }}</td>
+												<td>{{ appointment.date | date("d/m/Y") }}</td>
+												<td>
+													<div class="table-data-feature">
+														<a href="{{ path('appointment_edit', {'id': appointment.id}) }}" class="item" data-toggle="tooltip" data-placement="top" title="Modifier">
+															<i class="zmdi zmdi-edit"></i>
+														</a>
+
+														<button type="button" class="item" data-toggle="modal" data-target="#{{ appointment.id }}">
+															<i class="zmdi zmdi-delete"></i>
+														</button>
+													</div>
+												</td>
+											</tr>
+
+										{% endfor %}
+
+									</tbody>
+								</table>
+							</div>
+							<!-- END DATA TABLE -->
+						{% else %}
+							<h4>Aucun client enrégistré</h4>
+						{% endif %}
+					</div>
+
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-header">
+								<strong>Ajouter un client</strong>
+							</div>
+
+							{{ form_start(form) }}
+							<div class="card-body card-block">
+								{{ form_row(form.customer) }}
+								{{ form_row(form.place) }}
+								{{ form_row(form.date) }}
+							</div>
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary">Ajouter</button>
+								<button type="reset" class="btn btn-danger">Annuler</button>
+							</div>
+							{{ form_end(form) }}
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% for appointment in appointments %}
+
+		<!-- modal static delete -->
+		<div class="modal fade" id="{{ appointment.id }}" tabindex="-1" role="dialog" aria-labelledby="{{ appointment.id }}ModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="{{ appointment.id }}ModalLabel">Suppression d'un client</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Souhaitez vous supprimer le rendez vous avec 
+							{{ appointment.customer.firstName }} le
+							{{ appointment.date | date("m/d/Y") }}
+							?
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Non, annuler</button>
+						<a type="button" href="{{ path('appointment_delete', {'id': appointment.id}) }}" class="btn btn-primary">Oui, Supprimer</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end modal static -->
+
+	{% endfor %}
+
+
+{% endblock %}
+

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients
+{% endblock %}
+
+{% block body %}
+
+
+	<!-- MAIN CONTENT-->
+	<div class="main-content">
+		<div class="section__content section__content--p30">
+			<div class="container-fluid">
+				<div class="row">
+                    
+					<div class="col-md-8 col-lg-8 user-data user-data mb-5 pb-3">
+						<!-- DATA TABLE -->
+						<h3 class="title-5 m-b-35">Tous les lieux</h3>
+						{% if places | length > 0 %}
+							<div class="table-responsive table-responsive-data">
+								<table class="table table-data2 tablepage">
+									<thead>
+										<tr>
+											<th>Nom</th>
+											<th>Adresse</th>
+											<th>Code postal</th>
+											<th>Ville</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										{% for place in places %}
+
+											<tr class="tr-shadow">
+
+												<td>{{ place.name }}</td>
+												<td>{{ place.address }}</td>
+												<td>{{ place.zipCode }}</td>
+												<td>{{ place.city }}</td>
+											</tr>
+
+										{% endfor %}
+
+									</tbody>
+								</table>
+							</div>
+							<!-- END DATA TABLE -->
+						{% else %}
+							<h4>Aucun lieux enregisté</h4>
+						{% endif %}
+					</div>
+
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-header">
+								<strong>Importer des lieux</strong>
+							</div>
+
+							{{ form_start(form) }}
+							<div class="card-body card-block">
+								{{ form_row(form.file) }}
+							</div>
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary">Ajouter</button>
+								<button type="reset" class="btn btn-danger">Annuler</button>
+							</div>
+							{{ form_end(form) }}
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification d'un rendez vous
+{% endblock %}
+
+{% block body %}
+
+	<!-- MAIN CONTENT-->
+	<div class="main-content">
+		<div class="section__content section__content--p30">
+			<div class="container-fluid">
+
+				<div class="row">
+
+					<div class="col-md-4 offset-md-4">
+
+						<div class="card">
+							<div class="card-header">
+								<strong>Modification d'un rendez vous</strong>
+							</div>
+
+							{{ form_start(form) }}
+							<div class="card-body card-block">
+								{{ form_row(form.customer) }}
+								{{ form_row(form.place) }}
+								{{ form_row(form.date) }}
+							</div>
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary">Enregistrer</button>
+								<a href="{{ path('appointments') }}" class="btn btn-danger">Annuler</a>
+							</div>
+							{{ form_end(form) }}
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>
+			{% block title %}{% endblock %}
+			- Rendez vous
+        </title>
+
+		<link rel="shortcut icon" href="/images/favicon.png">
+
+        <!-- Fontfaces CSS-->
+        <link href="/assets/css/font-face.css" rel="stylesheet" media="all">
+        <link href="/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <link href="/assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+        <link href="/assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+		<link href="/assets/vendor/slick/slick.css" rel="stylesheet" media="all">
+
+        <!-- Bootstrap CSS-->
+        <link href="/assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+        <link href="/assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+        <!-- Main CSS-->
+        <link href="/assets/css/theme.css" rel="stylesheet" media="all">
+        <!-- Bootstrap table-filter CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+        {% block stylesheets %}{% endblock %}
+
+		
+	</head>
+	<body>
+
+		<div class="page-wrapper">
+			{% include '_partials/menu.html.twig' %}
+
+			<!-- PAGE CONTAINER-->
+			<div class="page-container">
+				{% include '_partials/header.html.twig' %}
+
+				{% block body %}{% endblock %}
+
+			</div>
+		</div>
+
+
+		<!-- Jquery JS-->
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<!-- Bootstrap JS-->
+		<script src="/assets/vendor/bootstrap-4.1/popper.min.js"></script>
+		<script src="/assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+		
+
+		<!-- Main JS-->
+		<script src="/assets/js/main.js"></script>
+
+		<!-- Bootstrap Table JS -->
+		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+		<!-- sweet Alert -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		
+
+		{% for label, messages in app.flashes %}
+			{% for message in messages %}
+
+				<script>
+					swal("", "{{ message | raw }}", "{{ label }}");
+				</script>
+
+			{% endfor %}
+		{% endfor %}
+
+		<script>
+			$(document).ready(function () {
+            $('.tablepage').DataTable();
+            });
+		</script>
+
+		{% block javascripts %}{% endblock %}
+
+	</body>
+</html>
+
