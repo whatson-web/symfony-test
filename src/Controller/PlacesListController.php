@@ -27,6 +27,7 @@ class PlacesListController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        $success = false;
         $csv = null;
         $form = $this->createFormBuilder($csv)
         ->add('submitFile', FileType::class, ['label' => 'Import a CSV file', 'constraints' => [
@@ -58,12 +59,14 @@ class PlacesListController extends AbstractController
                 }
                 fclose($handle);
                 $entityManager->flush();
+                $success = true;
             }
         }
 
         return $this->render('places_list/index.html.twig', [
             'places' => $placeRepository->findAll(),
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'success' => $success
         ]);
     }
 }

@@ -5,6 +5,9 @@
 {% block body %}
     <a href="{{ path('home_page') }}"><span class="iconify" data-icon="bx:bx-arrow-back" data-inline="false"></span> Go back</a>
     <h1><b><span class="whatson-web-span">Places</span> index</b></h1>
+    {% if success %}
+        <div class="alert alert-success">CSV submitted</div>
+    {% endif %}
     {{ form_start(form) }}
     {{ form_row(form.submitFile) }}
     <script>
