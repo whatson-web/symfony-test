@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="text-center mt-5 mb-5">
+        <img src="{{ asset('ww-logo-noir.png') }}" alt="logo" >
+    </div>
+    <h1><span class="whatson-web-span">Login</span></h1>
+    {{ form_start(loginForm) }}
+    {{ form_row(loginForm.email, {'full_name':'email'}) }}
+    {{ form_row(loginForm.password, {'full_name':'password'}) }}
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" name="_remember_me"> Remember me
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary" type="submit">
+        Sign in <span class="iconify" data-icon="fa:sign-in" data-inline="false"></span>
+    </button>
+    {{ form_end(loginForm) }}
+
+    <a href="{{ path('app_register') }}">Register</a>
+{% endblock %}

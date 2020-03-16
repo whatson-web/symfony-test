@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Whatson Test{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+        <div class="mb-3 text-right">
+            You are logged in as {{ app.user.username }}<br><button class="btn btn-info" onclick="location.href='{{ path('app_logout') }}'"><span class="iconify" data-icon="fa:sign-out" data-inline="false" data-flip="horizontal"></span> Logout</button>
+        </div>
+    {% endif %}
+
+    <div class="text-center mb-5">
+        <img src="{{ asset('ww-logo-noir.png') }}" alt="logo" >
+    </div>
+
+    <h1><b>Hello <span class="whatson-web-span">{{ app.user.username }}</span>!</b></h1>
+
+    <h2><b>From here, you can do the following things:</b></h2>
+
+    {{ include('home_page/_cards.html.twig') }}
+
+{% endblock %}

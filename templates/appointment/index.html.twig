@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Appointment CRUD{% endblock %}
+
+{% block body %}
+    <a href="{{ path('home_page') }}"><span class="iconify" data-icon="bx:bx-arrow-back" data-inline="false"></span> Go back</a>
+    <h1><b><span class="whatson-web-span">Appointment</span> index</b></h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>User</th>
+            <th>Customer</th>
+            <th>Place</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.id }}</td>
+                <td>{{ appointment.date ? appointment.date|date('d-m-Y H:i') : '' }}</td>
+                <td>
+                    {% if appointment.idUser|length > 1 %}
+                        {% for user in appointment.idUser %}
+                            <li>{{ user }}</li>
+                        {% endfor %}
+                    {% else %}
+                        {{ appointment.idUser|length == 1 ? appointment.idUser[0] : '' }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if appointment.idCustomer|length > 1 %}
+                        {% for customer in appointment.idCustomer %}
+                            <li>{{ customer }}</li>
+                        {% endfor %}
+                    {% else %}
+                        {{ appointment.idCustomer|length == 1 ? appointment.idCustomer[0] : '' }}
+                    {% endif %}
+                </td>
+                <td>{{ appointment.idPlace.name }}</td>
+                <td>
+                    <a href="{{ path('appointment_show', {'id': appointment.id}) }}">Show</a>
+                    <a href="{{ path('appointment_edit', {'id': appointment.id}) }}">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary" onclick="location.href='{{ path('appointment_new') }}'"><b><span class="iconify" data-icon="fa-solid:plus" data-inline="false"></span> Create New</b></button>
+{% endblock %}

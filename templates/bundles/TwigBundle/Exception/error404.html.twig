@@ -1,0 +1,20 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Oops!{% endblock %}
+
+{% block body %}
+
+    <style>
+        .title {text-align: center; font-size: 80px; font-weight: bold; color: #C82829}
+        .error-icon { font-size: 140px; text-align: center}
+        .error-content {text-align: center; font-size: 40px; font-weight: bold}
+    </style>
+
+    <a href="{{ path('home_page') }}"><span class="iconify" data-icon="ant-design:home-filled" data-inline="false"></span> Go to the Home Page</a>
+    <h1 class="title"><span class="iconify" data-icon="si-glyph:circle-error" data-inline="false"></span><br>404 - Not Found</h1>
+    <p class="error-content">The page '{{ app.request.pathinfo }}' doesn't exist on this server.</p>
+    <div class="error-content">
+        <img src="{{asset('404.jpg')}}" title="404meme" alt="404">
+    </div>
+{% endblock %}
