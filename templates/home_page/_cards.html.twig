@@ -1,0 +1,38 @@
+<style>
+    .clickable-card {cursor: pointer; transition: all 0.3s ease}
+    .clickable-card:hover {margin-top: -10px}
+    .user-card {background-color: #0c7b93}
+    .user-card:hover {background-color: #00a8cc}
+    .place-card {background-color: #c06c84}
+    .place-card:hover {background-color: #f67280}
+    .appointment-card {background-color: #007944}
+    .appointment-card:hover {background-color: #71a95a}
+</style>
+
+<div class="card-deck" style="padding-top: 20px">
+
+    <div class="card text-white mb-3 clickable-card user-card" onclick="location.href = '{{path('customer_index')}}';">
+        <div class="card-header h1 text-center"><span class="iconify" data-icon="ant-design:user-outlined" data-inline="false" data-width="140" data-height="140"></span></div>
+        <div class="card-body">
+            <h2 class="card-title"><b>Go to the customer CRUD</b></h2>
+            <p class="card-text">Create, Update or Delete a customer</p>
+        </div>
+    </div>
+
+    <div class="card text-white mb-3 clickable-card place-card" onclick="location.href = '{{path('places_list')}}';">
+        <div class="card-header h1 text-center"><span class="iconify" data-icon="ic:baseline-place" data-inline="false" data-width="140" data-height="140"></span></div>
+        <div class="card-body">
+            <h2 class="card-title"><b>See all the places</b></h2>
+            <p class="card-text">List all places, upload a CSV to import places</p>
+        </div>
+    </div>
+
+    <div class="card text-white mb-3 clickable-card appointment-card" onclick="location.href = '{{path('appointment_index')}}';">
+        <div class="card-header h1 text-center"><span class="iconify" data-icon="ant-design:schedule-filled" data-inline="false" data-width="140" data-height="140"></span></div>
+        <div class="card-body">
+            <h2 class="card-title"><b>Go to the appointment CRUD</b></h2>
+            <p class="card-text">Create, Update or Delete an appointment</p>
+        </div>
+    </div>
+
+</div>
